@@ -1,5 +1,5 @@
 # DB Migrations
-./db/migrations/
+db/migrations/
 
 # Logs
 logs
