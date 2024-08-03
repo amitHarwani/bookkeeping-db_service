@@ -1,0 +1,28 @@
+{
+  "name": "db_service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx ./src/db/migration.ts",    
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "db generate": "drizzle-kit generate",
+    "db migrate": "tsx ./src/db/migration.ts"
+  },
+  "author": "Amit Harwani",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.1.0",
+    "drizzle-kit": "^0.23.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.32.1",
+    "postgres": "^3.4.4"
+  }
+}
