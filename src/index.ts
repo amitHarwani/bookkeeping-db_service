@@ -1,1 +1,1 @@
-export * as schema from "./db/combined_schema";
+export * from "./db/combined_schema";
