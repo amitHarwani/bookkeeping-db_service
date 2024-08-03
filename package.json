@@ -3,13 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "tsx ./src/db/migration.ts",    
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "bin": {
     "db generate": "drizzle-kit generate",
-    "db migrate": "tsx ./src/db/migration.ts"
+    "db migrate": "tsx ./src/db/migration.ts",    
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Amit Harwani",
   "license": "ISC",
