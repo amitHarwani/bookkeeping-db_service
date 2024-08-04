@@ -1,8 +1,10 @@
 {
   "name": "db_service",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
+    "build": "tsc",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx ./db/migration.ts",    
     "test": "echo \"Error: no test specified\" && exit 1"
