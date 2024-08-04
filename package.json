@@ -6,7 +6,7 @@
     "dev": "tsc --watch",
     "build": "tsc",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "tsx ./db/migration.ts",    
+    "db:migrate": "tsx ./migration.ts",    
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Amit Harwani",

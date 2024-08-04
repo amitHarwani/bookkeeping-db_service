@@ -7,6 +7,7 @@ export const users = pgTable('users', {
     fullName: varchar('full_name').notNull(),
     email: varchar('email').unique().notNull(),
     password: varchar('password').notNull(),
+    refreshToken: varchar('refresh_token'),
     countryId: integer('country_id').references(() => countries.countryId),
     mobileNumber: varchar('mobile_number').notNull().unique(),
     isLoggedIn: boolean('is_logged_in').default(false),
