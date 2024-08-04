@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "db:generate": "drizzle-kit generate"
+    "db:migrate": "./dist/migration.js"
   },
   "author": "Amit Harwani",
   "license": "ISC",
