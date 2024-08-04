@@ -2,8 +2,8 @@
   "name": "db_service",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "types": "src/index.d.ts",
   "scripts": {
+    "dev": "tsc --watch",
     "build": "tsc",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx ./db/migration.ts",    

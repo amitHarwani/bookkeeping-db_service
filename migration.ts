@@ -8,7 +8,7 @@ dotenv.config({path: `.env.${process.env.NODE_ENV}`})
 
 async function main(){
     const migrationClient = postgres(process.env.DB_URL as string, { max: 1 });
-    await migrate(drizzle(migrationClient), {migrationsFolder: "./src/db/migrations"});
+    await migrate(drizzle(migrationClient), {migrationsFolder: "./db/migrations"});
     await migrationClient.end();
 }
 
