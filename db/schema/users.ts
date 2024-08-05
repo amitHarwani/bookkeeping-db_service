@@ -11,6 +11,8 @@ export const users = pgTable('users', {
     countryId: integer('country_id').references(() => countries.countryId),
     mobileNumber: varchar('mobile_number').notNull().unique(),
     isLoggedIn: boolean('is_logged_in').default(false),
+    isSubUser: boolean('is_sub_user').default(false),
+    isActive: boolean('is_active').default(true),
     createdAt: timestamp('created_at', {withTimezone: false}).defaultNow(),
     updatedAt: timestamp('updated_at', {withTimezone: false}).defaultNow()
 })

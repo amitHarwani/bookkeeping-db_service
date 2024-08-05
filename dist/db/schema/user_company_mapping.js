@@ -9,4 +9,8 @@ exports.userCompanyMapping = (0, pg_core_1.pgTable)('user_company_mapping', {
     userId: (0, pg_core_1.uuid)('user_id').references(() => users_1.users.userId),
     companyId: (0, pg_core_1.integer)('company_id').references(() => companies_1.companies.companyId),
     roleId: (0, pg_core_1.integer)('role_id').references(() => roles_1.roles.roleId)
+}, (table) => {
+    return {
+        userCompanyMappingPK: (0, pg_core_1.primaryKey)({ columns: [table.userId, table.companyId] })
+    };
 });

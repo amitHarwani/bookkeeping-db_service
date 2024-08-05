@@ -15,6 +15,7 @@ export const companies = pgTable('companies', {
     mainBranchId: integer('main_branch_id'),
     decimalRoundTo: integer('decimal_round_to').notNull(),
     createdBy: uuid('created_by').references(() => users.userId).notNull(),
+    isActive: boolean('is_active').default(true),
     createdAt: timestamp('created_at', {withTimezone: false}).defaultNow(),
     updatedAt: timestamp('updated_at', {withTimezone: false}).defaultNow()
 })

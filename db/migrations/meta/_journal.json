@@ -15,6 +15,13 @@
       "when": 1722775273136,
       "tag": "0001_wise_molecule_man",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1722841527548,
+      "tag": "0002_sour_nextwave",
+      "breakpoints": true
     }
   ]
 }

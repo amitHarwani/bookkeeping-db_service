@@ -16,6 +16,7 @@ exports.companies = (0, pg_core_1.pgTable)('companies', {
     mainBranchId: (0, pg_core_1.integer)('main_branch_id'),
     decimalRoundTo: (0, pg_core_1.integer)('decimal_round_to').notNull(),
     createdBy: (0, pg_core_1.uuid)('created_by').references(() => users_1.users.userId).notNull(),
+    isActive: (0, pg_core_1.boolean)('is_active').default(true),
     createdAt: (0, pg_core_1.timestamp)('created_at', { withTimezone: false }).defaultNow(),
     updatedAt: (0, pg_core_1.timestamp)('updated_at', { withTimezone: false }).defaultNow()
 });
