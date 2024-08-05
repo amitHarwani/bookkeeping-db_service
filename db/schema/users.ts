@@ -3,7 +3,7 @@ import { countries } from "./countries";
 
 
 export const users = pgTable('users', {
-    userId: uuid('user_id').primaryKey(),
+    userId: uuid('user_id').defaultRandom().primaryKey(),
     fullName: varchar('full_name').notNull(),
     email: varchar('email').unique().notNull(),
     password: varchar('password').notNull(),
