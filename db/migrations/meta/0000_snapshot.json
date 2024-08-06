@@ -1,5 +1,5 @@
 {
-  "id": "c513fe82-6c65-47d6-aeb3-da6897f89a85",
+  "id": "f41ff363-5a0b-4905-a40c-7ec204768bf0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -44,12 +44,6 @@
           "primaryKey": false,
           "notNull": true
         },
-        "tax_details": {
-          "name": "tax_details",
-          "type": "jsonb[]",
-          "primaryKey": false,
-          "notNull": true
-        },
         "is_main_branch": {
           "name": "is_main_branch",
           "type": "boolean",
@@ -74,6 +68,13 @@
           "type": "uuid",
           "primaryKey": false,
           "notNull": true
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": true
         },
         "created_at": {
           "name": "created_at",
@@ -129,6 +130,69 @@
           ]
         }
       }
+    },
+    "public.company_tax_mapping": {
+      "name": "company_tax_mapping",
+      "schema": "",
+      "columns": {
+        "company_id": {
+          "name": "company_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tax_id": {
+          "name": "tax_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "registration_number": {
+          "name": "registration_number",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "company_tax_mapping_company_id_countries_country_id_fk": {
+          "name": "company_tax_mapping_company_id_countries_country_id_fk",
+          "tableFrom": "company_tax_mapping",
+          "tableTo": "countries",
+          "columnsFrom": [
+            "company_id"
+          ],
+          "columnsTo": [
+            "country_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "company_tax_mapping_tax_id_tax_details_tax_id_fk": {
+          "name": "company_tax_mapping_tax_id_tax_details_tax_id_fk",
+          "tableFrom": "company_tax_mapping",
+          "tableTo": "tax_details",
+          "columnsFrom": [
+            "tax_id"
+          ],
+          "columnsTo": [
+            "tax_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "company_tax_mapping_company_id_tax_id_pk": {
+          "name": "company_tax_mapping_company_id_tax_id_pk",
+          "columns": [
+            "company_id",
+            "tax_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
     },
     "public.countries": {
       "name": "countries",
@@ -191,8 +255,7 @@
         },
         "feature_name": {
           "name": "feature_name",
-          "type": "platformFeaturesEnum",
-          "typeSchema": "public",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
@@ -241,9 +304,10 @@
         },
         "acl": {
           "name": "acl",
-          "type": "jsonb[]",
+          "type": "integer[]",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": "ARRAY[]::integer[]"
         }
       },
       "indexes": {},
@@ -341,7 +405,8 @@
           "name": "user_id",
           "type": "uuid",
           "primaryKey": true,
-          "notNull": true
+          "notNull": true,
+          "default": "gen_random_uuid()"
         },
         "full_name": {
           "name": "full_name",
@@ -361,6 +426,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "refresh_token": {
+          "name": "refresh_token",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
         "country_id": {
           "name": "country_id",
           "type": "integer",
@@ -379,6 +450,20 @@
           "primaryKey": false,
           "notNull": false,
           "default": false
+        },
+        "is_sub_user": {
+          "name": "is_sub_user",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": true
         },
         "created_at": {
           "name": "created_at",
@@ -494,26 +579,19 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {},
+      "compositePrimaryKeys": {
+        "user_company_mapping_user_id_company_id_pk": {
+          "name": "user_company_mapping_user_id_company_id_pk",
+          "columns": [
+            "user_id",
+            "company_id"
+          ]
+        }
+      },
       "uniqueConstraints": {}
     }
   },
-  "enums": {
-    "public.platformFeaturesEnum": {
-      "name": "platformFeaturesEnum",
-      "schema": "public",
-      "values": [
-        "ADD COUNTRY",
-        "GET COUNTRY",
-        "UPDATE COUNTRY",
-        "DELETE COUNTRY",
-        "ADD TAXDETAILS",
-        "GET TAXDETAILS",
-        "UPDATE TAXDETAILS",
-        "DELETE TAXDETAILS"
-      ]
-    }
-  },
+  "enums": {},
   "schemas": {},
   "sequences": {},
   "_meta": {

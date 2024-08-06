@@ -1,9 +1,3 @@
-DO $$ BEGIN
- CREATE TYPE "public"."platformFeaturesEnum" AS ENUM('ADD COUNTRY', 'GET COUNTRY', 'UPDATE COUNTRY', 'DELETE COUNTRY', 'ADD TAXDETAILS', 'GET TAXDETAILS', 'UPDATE TAXDETAILS', 'DELETE TAXDETAILS');
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "companies" (
 	"company_id" serial PRIMARY KEY NOT NULL,
 	"company_name" varchar NOT NULL,
@@ -11,14 +5,21 @@ CREATE TABLE IF NOT EXISTS "companies" (
 	"address" varchar NOT NULL,
 	"phone_number" varchar NOT NULL,
 	"day_start_time" time NOT NULL,
-	"tax_details" jsonb[] NOT NULL,
 	"is_main_branch" boolean DEFAULT true,
 	"main_branch_id" integer,
 	"decimal_round_to" integer NOT NULL,
 	"created_by" uuid NOT NULL,
+	"is_active" boolean DEFAULT true,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now(),
 	CONSTRAINT "companies_company_name_unique" UNIQUE("company_name")
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "company_tax_mapping" (
+	"company_id" integer NOT NULL,
+	"tax_id" integer NOT NULL,
+	"registration_number" varchar NOT NULL,
+	CONSTRAINT "company_tax_mapping_company_id_tax_id_pk" PRIMARY KEY("company_id","tax_id")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "countries" (
@@ -32,7 +33,7 @@ CREATE TABLE IF NOT EXISTS "countries" (
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "platform_features" (
 	"feature_id" serial PRIMARY KEY NOT NULL,
-	"feature_name" "platformFeaturesEnum" NOT NULL,
+	"feature_name" varchar NOT NULL,
 	"is_enabled" boolean DEFAULT true,
 	CONSTRAINT "platform_features_feature_name_unique" UNIQUE("feature_name")
 );
@@ -41,7 +42,7 @@ CREATE TABLE IF NOT EXISTS "roles" (
 	"role_id" serial PRIMARY KEY NOT NULL,
 	"company_id" integer,
 	"role_name" varchar NOT NULL,
-	"acl" jsonb[]
+	"acl" integer[] DEFAULT ARRAY[]::integer[]
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "tax_details" (
@@ -55,13 +56,16 @@ CREATE TABLE IF NOT EXISTS "tax_details" (
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "users" (
-	"user_id" uuid PRIMARY KEY NOT NULL,
+	"user_id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"full_name" varchar NOT NULL,
 	"email" varchar NOT NULL,
 	"password" varchar NOT NULL,
+	"refresh_token" varchar,
 	"country_id" integer,
 	"mobile_number" varchar NOT NULL,
 	"is_logged_in" boolean DEFAULT false,
+	"is_sub_user" boolean DEFAULT false,
+	"is_active" boolean DEFAULT true,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now(),
 	CONSTRAINT "users_email_unique" UNIQUE("email"),
@@ -71,7 +75,8 @@ CREATE TABLE IF NOT EXISTS "users" (
 CREATE TABLE IF NOT EXISTS "user_company_mapping" (
 	"user_id" uuid,
 	"company_id" integer,
-	"role_id" integer
+	"role_id" integer,
+	CONSTRAINT "user_company_mapping_user_id_company_id_pk" PRIMARY KEY("user_id","company_id")
 );
 --> statement-breakpoint
 DO $$ BEGIN
@@ -82,6 +87,18 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "companies" ADD CONSTRAINT "companies_created_by_users_user_id_fk" FOREIGN KEY ("created_by") REFERENCES "public"."users"("user_id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "company_tax_mapping" ADD CONSTRAINT "company_tax_mapping_company_id_countries_country_id_fk" FOREIGN KEY ("company_id") REFERENCES "public"."countries"("country_id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "company_tax_mapping" ADD CONSTRAINT "company_tax_mapping_tax_id_tax_details_tax_id_fk" FOREIGN KEY ("tax_id") REFERENCES "public"."tax_details"("tax_id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
