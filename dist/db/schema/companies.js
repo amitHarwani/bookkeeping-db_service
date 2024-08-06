@@ -11,7 +11,6 @@ exports.companies = (0, pg_core_1.pgTable)('companies', {
     address: (0, pg_core_1.varchar)('address').notNull(),
     phoneNumber: (0, pg_core_1.varchar)('phone_number').notNull(),
     dayStartTime: (0, pg_core_1.time)('day_start_time', { withTimezone: false }).notNull(),
-    taxDetails: (0, pg_core_1.jsonb)('tax_details').array().$type().notNull(),
     isMainBranch: (0, pg_core_1.boolean)('is_main_branch').default(true),
     mainBranchId: (0, pg_core_1.integer)('main_branch_id'),
     decimalRoundTo: (0, pg_core_1.integer)('decimal_round_to').notNull(),
