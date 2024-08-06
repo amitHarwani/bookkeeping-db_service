@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.users = exports.userCompanyMapping = exports.taxDetails = exports.roles = exports.platformFeatures = exports.countries = exports.companies = void 0;
+exports.companyTaxMapping = exports.roleFeatureMapping = exports.users = exports.userCompanyMapping = exports.taxDetails = exports.roles = exports.platformFeatures = exports.countries = exports.companies = void 0;
 var companies_1 = require("./db/schema/companies");
 Object.defineProperty(exports, "companies", { enumerable: true, get: function () { return companies_1.companies; } });
 var countries_1 = require("./db/schema/countries");
@@ -15,3 +15,7 @@ var user_company_mapping_1 = require("./db/schema/user_company_mapping");
 Object.defineProperty(exports, "userCompanyMapping", { enumerable: true, get: function () { return user_company_mapping_1.userCompanyMapping; } });
 var users_1 = require("./db/schema/users");
 Object.defineProperty(exports, "users", { enumerable: true, get: function () { return users_1.users; } });
+var role_feature_mapping_1 = require("./db/schema/role_feature_mapping");
+Object.defineProperty(exports, "roleFeatureMapping", { enumerable: true, get: function () { return role_feature_mapping_1.roleFeatureMapping; } });
+var company_tax_mapping_1 = require("./db/schema/company_tax_mapping");
+Object.defineProperty(exports, "companyTaxMapping", { enumerable: true, get: function () { return company_tax_mapping_1.companyTaxMapping; } });
