@@ -1,15 +1,12 @@
-import { integer, pgTable, primaryKey, uuid, varchar } from "drizzle-orm/pg-core";
+import { integer, pgTable, primaryKey, uuid, varchar, serial } from "drizzle-orm/pg-core";
 import { users } from "./users";
 import { companies } from "./companies";
 import { roles } from "./roles";
 
 
 export const userCompanyMapping = pgTable('user_company_mapping', {
+    id: serial('id').primaryKey(),
     userId: uuid('user_id').references(() => users.userId),
     companyId: integer('company_id').references(() => companies.companyId),
     roleId: integer('role_id').references(() => roles.roleId)
-}, (table) => {
-    return {
-        userCompanyMappingPK: primaryKey({columns: [table.userId, table.companyId]})
-    }
 })
