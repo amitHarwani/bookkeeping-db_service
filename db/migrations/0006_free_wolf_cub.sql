@@ -1,0 +1,1 @@
+ALTER TABLE "platform_features" ADD COLUMN "is_system_admin_feature" boolean DEFAULT false;

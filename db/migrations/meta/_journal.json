@@ -43,6 +43,13 @@
       "when": 1723113925420,
       "tag": "0005_wide_maria_hill",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1723632038762,
+      "tag": "0006_free_wolf_cub",
+      "breakpoints": true
     }
   ]
 }
