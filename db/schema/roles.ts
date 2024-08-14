@@ -7,4 +7,5 @@ export const roles = pgTable('roles', {
     roleId: serial('role_id').primaryKey(),
     companyId: integer('company_id').references(() => companies.companyId),
     roleName: varchar('role_name').notNull(),
+    acl: integer('acl').array().default(sql`ARRAY[]::integer[]`)
 })
