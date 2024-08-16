@@ -64,6 +64,13 @@
       "when": 1723639224971,
       "tag": "0008_acoustic_lockjaw",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1723798519018,
+      "tag": "0009_supreme_grandmaster",
+      "breakpoints": true
     }
   ]
 }

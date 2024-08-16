@@ -1,10 +1,10 @@
 import { integer, pgTable, primaryKey, varchar } from "drizzle-orm/pg-core";
-import { countries } from "./countries";
+import { companies } from "./companies";
 import { taxDetails } from "./tax_details";
 
 
 export const companyTaxMapping = pgTable("company_tax_mapping", {
-    companyId: integer('company_id').references(() => countries.countryId).notNull(),
+    companyId: integer('company_id').references(() => companies.companyId).notNull(),
     taxId: integer('tax_id').references(() => taxDetails.taxId).notNull(),
     registrationNumber: varchar('registration_number').notNull()
 }, (table) => {
