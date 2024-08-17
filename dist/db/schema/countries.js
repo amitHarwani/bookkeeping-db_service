@@ -9,5 +9,5 @@ exports.countries = (0, pg_core_1.pgTable)('countries', {
     phoneNumberCodes: (0, pg_core_1.varchar)('phone_number_codes').array().default((0, drizzle_orm_1.sql) `ARRAY[]::text[]`),
     currency: (0, pg_core_1.varchar)('currency').notNull(),
     maxPhoneNumberDigits: (0, pg_core_1.integer)('max_phone_number_digits').notNull(),
-    timezone: (0, pg_core_1.varchar)("timezone")
+    timezone: (0, pg_core_1.varchar)("timezone").notNull()
 });

@@ -78,6 +78,13 @@
       "when": 1723909495380,
       "tag": "0010_tearful_brother_voodoo",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1723909714988,
+      "tag": "0011_smart_demogoblin",
+      "breakpoints": true
     }
   ]
 }
