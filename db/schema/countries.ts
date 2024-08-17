@@ -7,5 +7,6 @@ export const countries = pgTable('countries', {
     countryName: varchar('country_name').unique().notNull(),
     phoneNumberCodes: varchar('phone_number_codes').array().default(sql`ARRAY[]::text[]`),
     currency: varchar('currency').notNull(),
-    maxPhoneNumberDigits: integer('max_phone_number_digits').notNull()
+    maxPhoneNumberDigits: integer('max_phone_number_digits').notNull(),
+    timezone: varchar("timezone")
 })
