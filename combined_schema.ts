@@ -9,3 +9,5 @@ export { userCompanyMapping } from "./db/schema/user_company_mapping";
 export { users } from "./db/schema/users";
 export {companyTaxMapping} from "./db/schema/company_tax_mapping";
 export {defaultFeatures, userTypes} from "./db/schema/default_features";
+export {items} from "./db/schema/items";
+export {units} from "./db/schema/units";
