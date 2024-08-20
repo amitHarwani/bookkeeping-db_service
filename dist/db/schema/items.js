@@ -11,7 +11,7 @@ exports.items = (0, pg_core_1.pgTable)("items", {
     unitId: (0, pg_core_1.integer)("unit_id").references(() => units_1.units.unitId),
     defaultSellingPrice: (0, pg_core_1.numeric)("default_selling_price"),
     defaultPurchasePrice: (0, pg_core_1.numeric)("default_purchase_price"),
-    stock: (0, pg_core_1.bigint)("stock", { mode: "number" }),
+    stock: (0, pg_core_1.numeric)("stock"),
     minStockToMaintain: (0, pg_core_1.bigint)("min_stock_to_maintain", { mode: "number" }),
     isActive: (0, pg_core_1.boolean)("is_active").default(true),
     priceHistoryOfCurrentStock: (0, pg_core_1.jsonb)("price_history_of_current_stock").array(),

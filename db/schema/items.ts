@@ -10,7 +10,7 @@ export const items = pgTable("items", {
     unitId: integer("unit_id").references(() => units.unitId),
     defaultSellingPrice: numeric("default_selling_price"),
     defaultPurchasePrice: numeric("default_purchase_price"),
-    stock: bigint("stock", {mode: "number"}),
+    stock: numeric("stock"),
     minStockToMaintain: bigint("min_stock_to_maintain", {mode: "number"}),
     isActive: boolean("is_active").default(true),
     priceHistoryOfCurrentStock: jsonb("price_history_of_current_stock").array(),
