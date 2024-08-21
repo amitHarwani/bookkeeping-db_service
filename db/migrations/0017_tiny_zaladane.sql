@@ -1,0 +1,1 @@
+ALTER TABLE "items" ALTER COLUMN "unit_name" SET NOT NULL;
