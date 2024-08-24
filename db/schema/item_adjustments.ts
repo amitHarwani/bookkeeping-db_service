@@ -12,6 +12,7 @@ export const itemAdjustments = pgTable("item_adjustments", {
     companyId: integer("company_id").references(() => companies.companyId).notNull(),
     adjustmentType: adjustmentTypes("adjustment_type").notNull(),
     stockAdjusted: numeric("stock_adjusted").notNull(),
+    pricePerUnit: numeric("price_per_unit"),
     reason: varchar("reason").notNull(),
     doneBy: uuid("done_by").references(() => users.userId).notNull(),
     adjustedAt: timestamp("adjusted_at", {withTimezone: false}).defaultNow()

@@ -1,0 +1,1 @@
+ALTER TABLE "item_adjustments" ADD COLUMN "price_per_unit" numeric;
