@@ -1,0 +1,1 @@
+ALTER TABLE "item_adjustments" ALTER COLUMN "adjustment_type" SET DATA TYPE varchar;

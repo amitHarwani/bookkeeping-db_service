@@ -10,7 +10,7 @@ export const itemAdjustments = pgTable("item_adjustments", {
     adjustmentId: serial("adjustment_id").primaryKey(),
     itemId: integer("item_id").references(() => items.itemId).notNull(),
     companyId: integer("company_id").references(() => companies.companyId).notNull(),
-    adjustmentType: adjustmentTypes("adjustment_type").notNull(),
+    adjustmentType: varchar("adjustment_type").notNull(),
     stockAdjusted: numeric("stock_adjusted").notNull(),
     pricePerUnit: numeric("price_per_unit"),
     reason: varchar("reason").notNull(),
