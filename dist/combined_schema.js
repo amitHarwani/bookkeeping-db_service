@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.units = exports.items = exports.userTypes = exports.defaultFeatures = exports.companyTaxMapping = exports.users = exports.userCompanyMapping = exports.taxDetails = exports.roles = exports.platformFeatures = exports.countries = exports.companies = void 0;
+exports.adjustmentTypes = exports.itemAdjustments = exports.units = exports.items = exports.userTypes = exports.defaultFeatures = exports.companyTaxMapping = exports.users = exports.userCompanyMapping = exports.taxDetails = exports.roles = exports.platformFeatures = exports.countries = exports.companies = void 0;
 var companies_1 = require("./db/schema/companies");
 Object.defineProperty(exports, "companies", { enumerable: true, get: function () { return companies_1.companies; } });
 var countries_1 = require("./db/schema/countries");
@@ -24,3 +24,6 @@ var items_1 = require("./db/schema/items");
 Object.defineProperty(exports, "items", { enumerable: true, get: function () { return items_1.items; } });
 var units_1 = require("./db/schema/units");
 Object.defineProperty(exports, "units", { enumerable: true, get: function () { return units_1.units; } });
+var item_adjustments_1 = require("./db/schema/item_adjustments");
+Object.defineProperty(exports, "itemAdjustments", { enumerable: true, get: function () { return item_adjustments_1.itemAdjustments; } });
+Object.defineProperty(exports, "adjustmentTypes", { enumerable: true, get: function () { return item_adjustments_1.adjustmentTypes; } });
