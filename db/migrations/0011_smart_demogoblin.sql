@@ -1,1 +1,0 @@
-ALTER TABLE "countries" ALTER COLUMN "timezone" SET NOT NULL;

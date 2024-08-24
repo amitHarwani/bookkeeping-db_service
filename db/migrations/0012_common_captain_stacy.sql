@@ -1,1 +1,0 @@
-ALTER TABLE "platform_features" ADD COLUMN "dependent_feature_id" integer;

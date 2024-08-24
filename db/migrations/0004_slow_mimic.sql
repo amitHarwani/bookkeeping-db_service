@@ -1,1 +1,0 @@
-ALTER TABLE "role_feature_mapping" DROP COLUMN IF EXISTS "feature_name";

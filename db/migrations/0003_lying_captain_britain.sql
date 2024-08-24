@@ -1,1 +1,0 @@
-ALTER TABLE "user_company_mapping" ADD CONSTRAINT "user_company_mapping_user_id_company_id_role_id_unique" UNIQUE("user_id","company_id","role_id");

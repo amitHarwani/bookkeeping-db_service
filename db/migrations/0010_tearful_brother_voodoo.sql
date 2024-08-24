@@ -1,1 +1,0 @@
-ALTER TABLE "countries" ADD COLUMN "timezone" varchar;
