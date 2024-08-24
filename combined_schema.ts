@@ -11,4 +11,4 @@ export {companyTaxMapping} from "./db/schema/company_tax_mapping";
 export {defaultFeatures, userTypes} from "./db/schema/default_features";
 export {items} from "./db/schema/items";
 export {units} from "./db/schema/units";
-export {itemAdjustments, adjustmentTypes} from "./db/schema/item_adjustments";
+export {itemAdjustments} from "./db/schema/item_adjustments";

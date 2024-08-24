@@ -3,8 +3,6 @@ import { items } from "./items";
 import { companies } from "./companies";
 import { users } from "./users";
 
-export const adjustmentTypes = pgEnum('adjustment_types', ["ADD", "SUBTRACT"]);
-
 
 export const itemAdjustments = pgTable("item_adjustments", {
     adjustmentId: serial("adjustment_id").primaryKey(),

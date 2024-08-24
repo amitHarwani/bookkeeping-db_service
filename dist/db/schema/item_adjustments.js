@@ -1,11 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.itemAdjustments = exports.adjustmentTypes = void 0;
+exports.itemAdjustments = void 0;
 const pg_core_1 = require("drizzle-orm/pg-core");
 const items_1 = require("./items");
 const companies_1 = require("./companies");
 const users_1 = require("./users");
-exports.adjustmentTypes = (0, pg_core_1.pgEnum)('adjustment_types', ["ADD", "SUBTRACT"]);
 exports.itemAdjustments = (0, pg_core_1.pgTable)("item_adjustments", {
     adjustmentId: (0, pg_core_1.serial)("adjustment_id").primaryKey(),
     itemId: (0, pg_core_1.integer)("item_id").references(() => items_1.items.itemId).notNull(),
