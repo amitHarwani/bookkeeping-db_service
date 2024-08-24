@@ -12,6 +12,7 @@ exports.itemAdjustments = (0, pg_core_1.pgTable)("item_adjustments", {
     companyId: (0, pg_core_1.integer)("company_id").references(() => companies_1.companies.companyId).notNull(),
     adjustmentType: (0, exports.adjustmentTypes)("adjustment_type").notNull(),
     stockAdjusted: (0, pg_core_1.numeric)("stock_adjusted").notNull(),
+    pricePerUnit: (0, pg_core_1.numeric)("price_per_unit"),
     reason: (0, pg_core_1.varchar)("reason").notNull(),
     doneBy: (0, pg_core_1.uuid)("done_by").references(() => users_1.users.userId).notNull(),
     adjustedAt: (0, pg_core_1.timestamp)("adjusted_at", { withTimezone: false }).defaultNow()
