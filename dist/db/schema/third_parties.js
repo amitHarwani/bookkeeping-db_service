@@ -13,6 +13,7 @@ exports.thirdParties = (0, pg_core_1.pgTable)("third_parties", {
     countryId: (0, pg_core_1.integer)("country_id").references(() => countries_1.countries.countryId).notNull(),
     phoneNumber: (0, pg_core_1.varchar)("phone_number"),
     taxDetails: (0, pg_core_1.jsonb)("tax_details").array(),
+    isActive: (0, pg_core_1.boolean)("is_active").default(true),
     createdAt: (0, pg_core_1.timestamp)("created_at", { withTimezone: false }).defaultNow(),
     updatedAt: (0, pg_core_1.timestamp)("updated_at", { withTimezone: false }).defaultNow()
 });

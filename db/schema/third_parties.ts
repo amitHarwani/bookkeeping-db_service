@@ -1,4 +1,4 @@
-import { integer, jsonb, pgTable, serial, timestamp, varchar } from "drizzle-orm/pg-core";
+import { integer, jsonb, pgTable, serial, timestamp, varchar,boolean } from "drizzle-orm/pg-core";
 import { companies } from "./companies";
 import { countries } from "./countries";
 
@@ -12,6 +12,7 @@ export const thirdParties = pgTable("third_parties", {
     countryId: integer("country_id").references(() => countries.countryId).notNull(),
     phoneNumber: varchar("phone_number"),
     taxDetails: jsonb("tax_details").array(),
+    isActive: boolean("is_active").default(true),
     createdAt: timestamp("created_at", {withTimezone: false}).defaultNow(),
     updatedAt: timestamp("updated_at", {withTimezone: false}).defaultNow()
 })
