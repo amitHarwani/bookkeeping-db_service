@@ -12,3 +12,4 @@ export {defaultFeatures, userTypes} from "./db/schema/default_features";
 export {items} from "./db/schema/items";
 export {units} from "./db/schema/units";
 export {itemAdjustments, adjustmentTypes} from "./db/schema/item_adjustments";
+export {thirdParties} from "./db/schema/third_parties";
