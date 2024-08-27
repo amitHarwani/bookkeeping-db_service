@@ -15,6 +15,13 @@
       "when": 1724574812386,
       "tag": "0001_fuzzy_boom_boom",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1724775813458,
+      "tag": "0002_classy_union_jack",
+      "breakpoints": true
     }
   ]
 }

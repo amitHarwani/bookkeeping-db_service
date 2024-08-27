@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.thirdParties = exports.adjustmentTypes = exports.itemAdjustments = exports.units = exports.items = exports.userTypes = exports.defaultFeatures = exports.companyTaxMapping = exports.users = exports.userCompanyMapping = exports.taxDetails = exports.roles = exports.platformFeatures = exports.countries = exports.companies = void 0;
+exports.returnItems = exports.returns = exports.returnTypes = exports.purchaseItems = exports.purchases = exports.thirdParties = exports.adjustmentTypes = exports.itemAdjustments = exports.units = exports.items = exports.userTypes = exports.defaultFeatures = exports.companyTaxMapping = exports.users = exports.userCompanyMapping = exports.taxDetails = exports.roles = exports.platformFeatures = exports.countries = exports.companies = void 0;
 var companies_1 = require("./db/schema/companies");
 Object.defineProperty(exports, "companies", { enumerable: true, get: function () { return companies_1.companies; } });
 var countries_1 = require("./db/schema/countries");
@@ -29,3 +29,12 @@ Object.defineProperty(exports, "itemAdjustments", { enumerable: true, get: funct
 Object.defineProperty(exports, "adjustmentTypes", { enumerable: true, get: function () { return item_adjustments_1.adjustmentTypes; } });
 var third_parties_1 = require("./db/schema/third_parties");
 Object.defineProperty(exports, "thirdParties", { enumerable: true, get: function () { return third_parties_1.thirdParties; } });
+var purchases_1 = require("./db/schema/purchases");
+Object.defineProperty(exports, "purchases", { enumerable: true, get: function () { return purchases_1.purchases; } });
+var purchase_items_1 = require("./db/schema/purchase_items");
+Object.defineProperty(exports, "purchaseItems", { enumerable: true, get: function () { return purchase_items_1.purchaseItems; } });
+var returns_1 = require("./db/schema/returns");
+Object.defineProperty(exports, "returnTypes", { enumerable: true, get: function () { return returns_1.returnTypes; } });
+Object.defineProperty(exports, "returns", { enumerable: true, get: function () { return returns_1.returns; } });
+var return_items_1 = require("./db/schema/return_items");
+Object.defineProperty(exports, "returnItems", { enumerable: true, get: function () { return return_items_1.returnItems; } });
