@@ -12,6 +12,7 @@ export const purchases = pgTable("purchases", {
     subtotal: numeric("subtotal").notNull(),
     discount: numeric("discount").notNull().default("0"),
     totalAfterDiscount: numeric("total_after_discount").notNull(),
+    tax: numeric("tax").notNull().default("0"),
     taxPercent: decimal("tax_percent").notNull().default("0"),
     taxName: varchar("tax_name").notNull().default(""),
     totalAfterTax: numeric("total_after_tax").notNull(),

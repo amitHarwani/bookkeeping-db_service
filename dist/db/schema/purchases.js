@@ -13,6 +13,7 @@ exports.purchases = (0, pg_core_1.pgTable)("purchases", {
     subtotal: (0, pg_core_1.numeric)("subtotal").notNull(),
     discount: (0, pg_core_1.numeric)("discount").notNull().default("0"),
     totalAfterDiscount: (0, pg_core_1.numeric)("total_after_discount").notNull(),
+    tax: (0, pg_core_1.numeric)("tax").notNull().default("0"),
     taxPercent: (0, pg_core_1.decimal)("tax_percent").notNull().default("0"),
     taxName: (0, pg_core_1.varchar)("tax_name").notNull().default(""),
     totalAfterTax: (0, pg_core_1.numeric)("total_after_tax").notNull(),

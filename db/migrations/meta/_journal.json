@@ -22,6 +22,13 @@
       "when": 1724775813458,
       "tag": "0002_classy_union_jack",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1725282121964,
+      "tag": "0003_new_paladin",
+      "breakpoints": true
     }
   ]
 }

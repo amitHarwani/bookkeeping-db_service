@@ -16,6 +16,7 @@ exports.purchaseItems = (0, pg_core_1.pgTable)("purchase_items", {
     unitsPurchased: (0, pg_core_1.numeric)("units_purchased").notNull(),
     pricePerUnit: (0, pg_core_1.numeric)("price_per_unit").notNull(),
     subtotal: (0, pg_core_1.numeric)("subtotal").notNull(),
+    tax: (0, pg_core_1.numeric)("tax").notNull().default("0"),
     taxPercent: (0, pg_core_1.decimal)("tax_percent").notNull(),
     totalAfterTax: (0, pg_core_1.numeric)("total_after_tax").notNull(),
     createdAt: (0, pg_core_1.timestamp)("created_at", { withTimezone: false }).defaultNow(),

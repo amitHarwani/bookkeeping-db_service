@@ -15,6 +15,7 @@ export const purchaseItems = pgTable("purchase_items", {
     unitsPurchased: numeric("units_purchased").notNull(),
     pricePerUnit: numeric("price_per_unit").notNull(),
     subtotal: numeric("subtotal").notNull(),
+    tax: numeric("tax").notNull().default("0"),
     taxPercent: decimal("tax_percent").notNull(),
     totalAfterTax: numeric("total_after_tax").notNull(),
     createdAt: timestamp("created_at", {withTimezone: false}).defaultNow(),
