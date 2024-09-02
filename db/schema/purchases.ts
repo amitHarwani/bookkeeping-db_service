@@ -1,10 +1,10 @@
-import { bigserial, boolean, date, decimal, integer, numeric, pgTable, serial, timestamp, varchar } from "drizzle-orm/pg-core";
+import { boolean, date, decimal, integer, numeric, pgTable, serial, timestamp, varchar } from "drizzle-orm/pg-core";
 import { companies } from "./companies";
 import { thirdParties } from "./third_parties";
 
 
 export const purchases = pgTable("purchases", {
-    purchaseId: bigserial("purchase_id", {mode: "bigint"}).primaryKey(),
+    purchaseId: serial("purchase_id").primaryKey(),
     invoiceNumber: integer("invoice_number").notNull(),
     companyId: integer("company_id").references(() => companies.companyId).notNull(),
     partyId: integer("party_id").references(() => thirdParties.partyId).notNull(),

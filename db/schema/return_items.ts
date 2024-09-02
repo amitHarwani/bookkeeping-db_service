@@ -1,12 +1,12 @@
-import { bigserial, decimal, integer, numeric, pgTable, primaryKey, timestamp, varchar } from "drizzle-orm/pg-core";
-import { returns } from "./returns";
+import { decimal, integer, numeric, pgTable, primaryKey, timestamp, varchar } from "drizzle-orm/pg-core";
 import { items } from "./items";
+import { returns } from "./returns";
 import { units } from "./units";
 
 
 
 export const returnItems = pgTable("return_items", {
-    returnId: bigserial("return_id", {mode: "bigint"}).references(() => returns.returnId).notNull(),
+    returnId: integer("return_id").references(() => returns.returnId).notNull(),
     itemId: integer("item_id").references(() => items.itemId).notNull(),
     itemName: varchar("item_name").notNull(),
     unitId: integer("unit_id").references(() => units.unitId).notNull(),

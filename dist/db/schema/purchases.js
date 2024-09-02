@@ -5,7 +5,7 @@ const pg_core_1 = require("drizzle-orm/pg-core");
 const companies_1 = require("./companies");
 const third_parties_1 = require("./third_parties");
 exports.purchases = (0, pg_core_1.pgTable)("purchases", {
-    purchaseId: (0, pg_core_1.bigserial)("purchase_id", { mode: "bigint" }).primaryKey(),
+    purchaseId: (0, pg_core_1.serial)("purchase_id").primaryKey(),
     invoiceNumber: (0, pg_core_1.integer)("invoice_number").notNull(),
     companyId: (0, pg_core_1.integer)("company_id").references(() => companies_1.companies.companyId).notNull(),
     partyId: (0, pg_core_1.integer)("party_id").references(() => third_parties_1.thirdParties.partyId).notNull(),

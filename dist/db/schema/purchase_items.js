@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.purchaseItems = void 0;
 const pg_core_1 = require("drizzle-orm/pg-core");
-const purchases_1 = require("./purchases");
-const items_1 = require("./items");
 const companies_1 = require("./companies");
+const items_1 = require("./items");
+const purchases_1 = require("./purchases");
 const units_1 = require("./units");
 exports.purchaseItems = (0, pg_core_1.pgTable)("purchase_items", {
-    purchaseId: (0, pg_core_1.bigserial)("purchase_id", { mode: "bigint" }).references(() => purchases_1.purchases.purchaseId).notNull(),
+    purchaseId: (0, pg_core_1.integer)("purchase_id").references(() => purchases_1.purchases.purchaseId).notNull(),
     itemId: (0, pg_core_1.integer)("item_id").references(() => items_1.items.itemId).notNull(),
     itemName: (0, pg_core_1.varchar)("item_name").notNull(),
     companyId: (0, pg_core_1.integer)("company_id").references(() => companies_1.companies.companyId).notNull(),
