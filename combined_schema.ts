@@ -13,5 +13,5 @@ export { itemAdjustments, adjustmentTypes } from "./db/schema/item_adjustments";
 export { thirdParties } from "./db/schema/third_parties";
 export { purchases } from "./db/schema/purchases";
 export { purchaseItems } from "./db/schema/purchase_items";
-export { returnTypes, returns } from "./db/schema/returns";
-export { returnItems } from "./db/schema/return_items";
+export { sales } from "./db/schema/sales";
+export {saleItems} from "./db/schema/sale_items";
