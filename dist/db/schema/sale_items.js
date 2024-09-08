@@ -6,7 +6,6 @@ const sales_1 = require("./sales");
 const items_1 = require("./items");
 const companies_1 = require("./companies");
 const units_1 = require("./units");
-const drizzle_orm_1 = require("drizzle-orm");
 exports.saleItems = (0, pg_core_1.pgTable)("sale_items", {
     saleId: (0, pg_core_1.integer)("sale_id").references(() => sales_1.sales.saleId).notNull(),
     itemId: (0, pg_core_1.integer)("item_id").references(() => items_1.items.itemId).notNull(),
@@ -20,10 +19,6 @@ exports.saleItems = (0, pg_core_1.pgTable)("sale_items", {
     tax: (0, pg_core_1.numeric)("tax").notNull().default("0"),
     taxPercent: (0, pg_core_1.decimal)("tax_percent").notNull(),
     totalAfterTax: (0, pg_core_1.numeric)("total_after_tax").notNull(),
-    totalProfit: (0, pg_core_1.numeric)("total_profit"),
-    costOfItems: (0, pg_core_1.jsonb)("cost_of_items").array(),
-    purchaseIds: (0, pg_core_1.integer)("purchase_ids").array().default((0, drizzle_orm_1.sql) `ARRAY[]::integer[]`),
-    remainingUnitsForProfitCalc: (0, pg_core_1.numeric)("remaining_units_for_profit_calc"),
     createdAt: (0, pg_core_1.timestamp)("created_at", { withTimezone: false }).defaultNow(),
     updatedAt: (0, pg_core_1.timestamp)("updated_at", { withTimezone: false }).defaultNow(),
 }, (table) => {
