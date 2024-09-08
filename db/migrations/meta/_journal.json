@@ -15,6 +15,13 @@
       "when": 1725790393676,
       "tag": "0001_same_anita_blake",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1725792265867,
+      "tag": "0002_clean_earthquake",
+      "breakpoints": true
     }
   ]
 }

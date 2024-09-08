@@ -2,10 +2,12 @@ import { integer, pgTable, numeric, jsonb, primaryKey } from "drizzle-orm/pg-cor
 import { sales } from "./sales";
 import { items } from "./items";
 import { sql } from "drizzle-orm";
+import { companies } from "./companies";
 
 export const saleItemProfits = pgTable("sale_item_profits", {
     saleId: integer("sale_id").references(() => sales.saleId),
     itemId: integer("item_id").references(() => items.itemId),
+    companyId: integer("company_id").references(() => companies.companyId),
     totalProfit: numeric("total_profit"),
     costOfItems: jsonb("cost_of_items").array(),
     purchaseIds: integer("purchase_ids").array().default(sql`ARRAY[]::integer[]`),
