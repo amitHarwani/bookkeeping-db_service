@@ -23,6 +23,7 @@ exports.saleItems = (0, pg_core_1.pgTable)("sale_items", {
     totalProfit: (0, pg_core_1.numeric)("total_profit"),
     costOfItems: (0, pg_core_1.jsonb)("cost_of_items").array(),
     purchaseIds: (0, pg_core_1.integer)("purchase_ids").array().default((0, drizzle_orm_1.sql) `ARRAY[]::integer[]`),
+    remainingUnitsForProfitCalc: (0, pg_core_1.numeric)("remaining_units_for_profit_calc"),
     createdAt: (0, pg_core_1.timestamp)("created_at", { withTimezone: false }).defaultNow(),
     updatedAt: (0, pg_core_1.timestamp)("updated_at", { withTimezone: false }).defaultNow(),
 }, (table) => {

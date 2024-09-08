@@ -22,6 +22,7 @@ export const saleItems = pgTable("sale_items", {
     totalProfit: numeric("total_profit"),
     costOfItems: jsonb("cost_of_items").array(),
     purchaseIds: integer("purchase_ids").array().default(sql`ARRAY[]::integer[]`),
+    remainingUnitsForProfitCalc: numeric("remaining_units_for_profit_calc"),
     createdAt: timestamp("created_at", {withTimezone: false}).defaultNow(),
     updatedAt: timestamp("updated_at", {withTimezone: false}).defaultNow(),
 }, (table) => {
