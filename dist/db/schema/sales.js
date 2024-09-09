@@ -21,11 +21,11 @@ exports.sales = (0, pg_core_1.pgTable)("sales", {
     taxName: (0, pg_core_1.varchar)("tax_name").notNull().default(""),
     totalAfterTax: (0, pg_core_1.numeric)("total_after_tax").notNull(),
     isCredit: (0, pg_core_1.boolean)("is_credit").notNull().default(false),
-    paymentDueDate: (0, pg_core_1.date)("payment_due_date"), /* For non credit transactions this will be null */
+    paymentDueDate: (0, pg_core_1.timestamp)("payment_due_date", { withTimezone: false }), /* For non credit transactions this will be null */
     amountPaid: (0, pg_core_1.numeric)("amount_paid").notNull(),
     amountDue: (0, pg_core_1.numeric)("amount_due").notNull(),
     isFullyPaid: (0, pg_core_1.boolean)("is_fully_paid").notNull().default(false),
-    paymentCompletionDate: (0, pg_core_1.date)("payment_completion_date"),
+    paymentCompletionDate: (0, pg_core_1.timestamp)("payment_completion_date", { withTimezone: false }),
     createdAt: (0, pg_core_1.timestamp)("created_at", { withTimezone: false }).defaultNow(),
     updatedAt: (0, pg_core_1.timestamp)("updated_at", { withTimezone: false }).defaultNow(),
 }, (table) => {

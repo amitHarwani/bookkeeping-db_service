@@ -1,4 +1,4 @@
-import { boolean, date, decimal, integer, numeric, pgTable, serial, timestamp, unique, uuid, varchar } from "drizzle-orm/pg-core";
+import { boolean, decimal, integer, numeric, pgTable, serial, timestamp, unique, uuid, varchar } from "drizzle-orm/pg-core";
 import { companies } from "./companies";
 import { thirdParties } from "./third_parties";
 import { users } from "./users";
@@ -20,11 +20,11 @@ export const sales = pgTable("sales", {
     taxName: varchar("tax_name").notNull().default(""),
     totalAfterTax: numeric("total_after_tax").notNull(),
     isCredit: boolean("is_credit").notNull().default(false),
-    paymentDueDate: date("payment_due_date"), /* For non credit transactions this will be null */
+    paymentDueDate: timestamp("payment_due_date", {withTimezone: false}), /* For non credit transactions this will be null */
     amountPaid: numeric("amount_paid").notNull(),
     amountDue: numeric("amount_due").notNull(),
     isFullyPaid: boolean("is_fully_paid").notNull().default(false),
-    paymentCompletionDate: date("payment_completion_date"),
+    paymentCompletionDate: timestamp("payment_completion_date", {withTimezone: false}),
     createdAt: timestamp("created_at", {withTimezone: false}).defaultNow(),
     updatedAt: timestamp("updated_at", {withTimezone: false}).defaultNow(),
 
