@@ -1,0 +1,1 @@
+ALTER TABLE "quotation_items" ALTER COLUMN "company_id" SET NOT NULL;
