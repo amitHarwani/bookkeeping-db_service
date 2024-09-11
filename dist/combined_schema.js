@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.saleItemProfits = exports.saleItems = exports.sales = exports.purchaseItems = exports.purchases = exports.thirdParties = exports.adjustmentTypes = exports.itemAdjustments = exports.units = exports.items = exports.userTypes = exports.defaultFeatures = exports.companyTaxMapping = exports.users = exports.userCompanyMapping = exports.taxDetails = exports.roles = exports.platformFeatures = exports.countries = exports.companies = void 0;
+exports.quotationItems = exports.quotations = exports.saleItemProfits = exports.saleItems = exports.sales = exports.purchaseItems = exports.purchases = exports.thirdParties = exports.adjustmentTypes = exports.itemAdjustments = exports.units = exports.items = exports.userTypes = exports.defaultFeatures = exports.companyTaxMapping = exports.users = exports.userCompanyMapping = exports.taxDetails = exports.roles = exports.platformFeatures = exports.countries = exports.companies = void 0;
 var companies_1 = require("./db/schema/companies");
 Object.defineProperty(exports, "companies", { enumerable: true, get: function () { return companies_1.companies; } });
 var countries_1 = require("./db/schema/countries");
@@ -39,3 +39,7 @@ var sale_items_1 = require("./db/schema/sale_items");
 Object.defineProperty(exports, "saleItems", { enumerable: true, get: function () { return sale_items_1.saleItems; } });
 var sale_item_profits_1 = require("./db/schema/sale_item_profits");
 Object.defineProperty(exports, "saleItemProfits", { enumerable: true, get: function () { return sale_item_profits_1.saleItemProfits; } });
+var quotations_1 = require("./db/schema/quotations");
+Object.defineProperty(exports, "quotations", { enumerable: true, get: function () { return quotations_1.quotations; } });
+var quotation_items_1 = require("./db/schema/quotation_items");
+Object.defineProperty(exports, "quotationItems", { enumerable: true, get: function () { return quotation_items_1.quotationItems; } });

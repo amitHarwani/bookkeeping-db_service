@@ -43,6 +43,13 @@
       "when": 1725895704000,
       "tag": "0005_kind_dreadnoughts",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1726065848035,
+      "tag": "0006_colorful_sphinx",
+      "breakpoints": true
     }
   ]
 }

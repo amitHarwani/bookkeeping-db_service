@@ -16,3 +16,6 @@ export { purchaseItems } from "./db/schema/purchase_items";
 export { sales } from "./db/schema/sales";
 export {saleItems} from "./db/schema/sale_items";
 export {saleItemProfits} from "./db/schema/sale_item_profits";
+export {quotations} from "./db/schema/quotations";
+export {quotationItems} from "./db/schema/quotation_items";
+
