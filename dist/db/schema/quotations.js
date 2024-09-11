@@ -4,11 +4,14 @@ exports.quotations = void 0;
 const pg_core_1 = require("drizzle-orm/pg-core");
 const companies_1 = require("./companies");
 const users_1 = require("./users");
+const third_parties_1 = require("./third_parties");
 exports.quotations = (0, pg_core_1.pgTable)("quotations", {
     quotationId: (0, pg_core_1.serial)("quotation_id").primaryKey(),
     quotationNumber: (0, pg_core_1.integer)("quotation_number").notNull(),
     companyId: (0, pg_core_1.integer)("company_id").references(() => companies_1.companies.companyId).notNull(),
     createdBy: (0, pg_core_1.uuid)("created_by").references(() => users_1.users.userId),
+    partyId: (0, pg_core_1.integer)("party_id").references(() => third_parties_1.thirdParties.partyId).notNull(),
+    partyName: (0, pg_core_1.varchar)("party_name").notNull(),
     subtotal: (0, pg_core_1.numeric)("subtotal").notNull(),
     discount: (0, pg_core_1.numeric)("discount").notNull().default("0"),
     totalAfterDiscount: (0, pg_core_1.numeric)("total_after_discount").notNull(),

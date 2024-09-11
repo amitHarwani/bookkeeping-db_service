@@ -1,6 +1,7 @@
 import { decimal, integer, numeric, pgTable, serial, timestamp, unique, uuid, varchar } from "drizzle-orm/pg-core";
 import { companies } from "./companies";
 import { users } from "./users";
+import { thirdParties } from "./third_parties";
 
 
 export const quotations = pgTable("quotations", {
@@ -8,6 +9,8 @@ export const quotations = pgTable("quotations", {
     quotationNumber: integer("quotation_number").notNull(),
     companyId: integer("company_id").references(() => companies.companyId).notNull(),
     createdBy: uuid("created_by").references(() => users.userId),
+    partyId: integer("party_id").references(() => thirdParties.partyId).notNull(),
+    partyName: varchar("party_name").notNull(),
     subtotal: numeric("subtotal").notNull(),
     discount: numeric("discount").notNull().default("0"),
     totalAfterDiscount: numeric("total_after_discount").notNull(),
