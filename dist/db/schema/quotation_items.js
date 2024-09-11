@@ -9,6 +9,7 @@ const units_1 = require("./units");
 exports.quotationItems = (0, pg_core_1.pgTable)("quotation_items", {
     quotationId: (0, pg_core_1.integer)("quotation_id").references(() => quotations_1.quotations.quotationId).notNull(),
     itemId: (0, pg_core_1.integer)("item_id").references(() => items_1.items.itemId).notNull(),
+    itemName: (0, pg_core_1.varchar)("item_name").notNull(),
     companyId: (0, pg_core_1.integer)("company_id").references(() => companies_1.companies.companyId),
     unitId: (0, pg_core_1.integer)("unit_id").references(() => units_1.units.unitId).notNull(),
     unitName: (0, pg_core_1.varchar)("unit_name").notNull(),

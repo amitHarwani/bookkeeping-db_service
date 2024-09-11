@@ -7,6 +7,7 @@ import { units } from "./units";
 export const quotationItems = pgTable("quotation_items", {
     quotationId: integer("quotation_id").references(() => quotations.quotationId).notNull(),
     itemId: integer("item_id").references(() => items.itemId).notNull(),
+    itemName: varchar("item_name").notNull(),
     companyId: integer("company_id").references(() => companies.companyId),
     unitId: integer("unit_id").references(() => units.unitId).notNull(),
     unitName: varchar("unit_name").notNull(),

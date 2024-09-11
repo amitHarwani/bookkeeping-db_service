@@ -1,0 +1,1 @@
+ALTER TABLE "quotation_items" ADD COLUMN "item_name" varchar NOT NULL;
