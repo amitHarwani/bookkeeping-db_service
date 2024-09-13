@@ -18,7 +18,7 @@ export const quotations = pgTable("quotations", {
     taxPercent: decimal("tax_percent").notNull().default("0"),
     taxName: varchar("tax_name").notNull().default(""),
     totalAfterTax: numeric("total_after_tax").notNull(),
-    saleInvoiceNumber: integer("sale_invoice_number"),
+    saleId: integer("sale_id"),
     createdAt: timestamp("created_at", {withTimezone: false}).defaultNow(),
     updatedAt: timestamp("updated_at", {withTimezone: false}).defaultNow(),
 }, (table) => {

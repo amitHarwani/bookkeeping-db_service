@@ -1,0 +1,1 @@
+ALTER TABLE "quotations" RENAME COLUMN "sale_invoice_number" TO "sale_id";

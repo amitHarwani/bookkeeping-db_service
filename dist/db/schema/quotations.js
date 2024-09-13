@@ -19,7 +19,7 @@ exports.quotations = (0, pg_core_1.pgTable)("quotations", {
     taxPercent: (0, pg_core_1.decimal)("tax_percent").notNull().default("0"),
     taxName: (0, pg_core_1.varchar)("tax_name").notNull().default(""),
     totalAfterTax: (0, pg_core_1.numeric)("total_after_tax").notNull(),
-    saleInvoiceNumber: (0, pg_core_1.integer)("sale_invoice_number"),
+    saleId: (0, pg_core_1.integer)("sale_id"),
     createdAt: (0, pg_core_1.timestamp)("created_at", { withTimezone: false }).defaultNow(),
     updatedAt: (0, pg_core_1.timestamp)("updated_at", { withTimezone: false }).defaultNow(),
 }, (table) => {
