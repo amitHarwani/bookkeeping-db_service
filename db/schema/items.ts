@@ -1,4 +1,4 @@
-import { bigint, boolean, integer, jsonb, numeric, pgTable, serial, timestamp, varchar } from "drizzle-orm/pg-core";
+import { boolean, integer, jsonb, numeric, pgTable, serial, timestamp, varchar } from "drizzle-orm/pg-core";
 import { companies } from "./companies";
 import { units } from "./units";
 
@@ -12,7 +12,7 @@ export const items = pgTable("items", {
     defaultSellingPrice: numeric("default_selling_price"),
     defaultPurchasePrice: numeric("default_purchase_price"),
     stock: numeric("stock").notNull(),
-    minStockToMaintain: bigint("min_stock_to_maintain", {mode: "number"}),
+    minStockToMaintain: numeric("min_stock_to_maintain"),
     isActive: boolean("is_active").default(true),
     priceHistoryOfCurrentStock: jsonb("price_history_of_current_stock").array(),
     createdAt: timestamp("created_at", {withTimezone: false}).defaultNow(),

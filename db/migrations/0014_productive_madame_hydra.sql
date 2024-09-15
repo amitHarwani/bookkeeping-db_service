@@ -1,0 +1,1 @@
+ALTER TABLE "items" ALTER COLUMN "min_stock_to_maintain" SET DATA TYPE numeric;
