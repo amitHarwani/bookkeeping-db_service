@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.cashInOut = exports.quotationItems = exports.quotations = exports.saleItemProfits = exports.saleItems = exports.sales = exports.purchaseItems = exports.purchases = exports.thirdParties = exports.adjustmentTypes = exports.itemAdjustments = exports.units = exports.items = exports.userTypes = exports.defaultFeatures = exports.companyTaxMapping = exports.users = exports.userCompanyMapping = exports.taxDetails = exports.roles = exports.platformFeatures = exports.countries = exports.companies = void 0;
+exports.transferItems = exports.itemTransfers = exports.cashInOut = exports.quotationItems = exports.quotations = exports.saleItemProfits = exports.saleItems = exports.sales = exports.purchaseItems = exports.purchases = exports.thirdParties = exports.adjustmentTypes = exports.itemAdjustments = exports.units = exports.items = exports.userTypes = exports.defaultFeatures = exports.companyTaxMapping = exports.users = exports.userCompanyMapping = exports.taxDetails = exports.roles = exports.platformFeatures = exports.countries = exports.companies = void 0;
 var companies_1 = require("./db/schema/companies");
 Object.defineProperty(exports, "companies", { enumerable: true, get: function () { return companies_1.companies; } });
 var countries_1 = require("./db/schema/countries");
@@ -45,3 +45,7 @@ var quotation_items_1 = require("./db/schema/quotation_items");
 Object.defineProperty(exports, "quotationItems", { enumerable: true, get: function () { return quotation_items_1.quotationItems; } });
 var cash_in_out_1 = require("./db/schema/cash_in_out");
 Object.defineProperty(exports, "cashInOut", { enumerable: true, get: function () { return cash_in_out_1.cashInOut; } });
+var item_transfers_1 = require("./db/schema/item_transfers");
+Object.defineProperty(exports, "itemTransfers", { enumerable: true, get: function () { return item_transfers_1.itemTransfers; } });
+var tranfer_items_1 = require("./db/schema/tranfer_items");
+Object.defineProperty(exports, "transferItems", { enumerable: true, get: function () { return tranfer_items_1.transferItems; } });
