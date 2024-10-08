@@ -1,11 +1,11 @@
 import { integer, jsonb, numeric, pgTable, primaryKey, varchar } from "drizzle-orm/pg-core";
-import { itemTransfers } from "./item_transfers";
+import { transfers } from "./transfers";
 import { items } from "./items";
 import { units } from "./units";
 
 
 export const transferItems = pgTable("transfer_items", {
-    transferId: integer("transfer_id").references(() => itemTransfers.transferId).notNull(),
+    transferId: integer("transfer_id").references(() => transfers.transferId).notNull(),
     itemId: integer("item_id").references(() => items.itemId).notNull(),
     itemName: varchar("item_name").notNull(),
     unitId: integer("unit_id").references(() => units.unitId).notNull(),

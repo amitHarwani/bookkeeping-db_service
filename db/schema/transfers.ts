@@ -3,7 +3,7 @@ import { companies } from "./companies";
 import { users } from "./users";
 
 
-export const itemTransfers = pgTable("item_transfers", {
+export const transfers = pgTable("transfers", {
     transferId: serial("transfer_id").primaryKey(),
     fromCompanyId: integer("from_company_id").references(() => companies.companyId).notNull(),
     toCompanyId: integer("to_company_id").references(() => companies.companyId).notNull(),

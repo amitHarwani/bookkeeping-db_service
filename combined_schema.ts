@@ -19,5 +19,5 @@ export { saleItemProfits } from "./db/schema/sale_item_profits";
 export { quotations } from "./db/schema/quotations";
 export { quotationItems } from "./db/schema/quotation_items";
 export { cashInOut } from "./db/schema/cash_in_out";
-export {itemTransfers} from "./db/schema/item_transfers";
+export {transfers} from "./db/schema/transfers";
 export {transferItems} from "./db/schema/tranfer_items";
