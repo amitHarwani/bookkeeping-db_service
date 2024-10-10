@@ -19,6 +19,8 @@ exports.sales = (0, pg_core_1.pgTable)("sales", {
     tax: (0, pg_core_1.numeric)("tax").notNull().default("0"),
     taxPercent: (0, pg_core_1.decimal)("tax_percent").notNull().default("0"),
     taxName: (0, pg_core_1.varchar)("tax_name").notNull().default(""),
+    companyTaxNumber: (0, pg_core_1.varchar)("company_tax_number").default(""),
+    partyTaxNumber: (0, pg_core_1.varchar)("party_tax_number").default(""),
     totalAfterTax: (0, pg_core_1.numeric)("total_after_tax").notNull(),
     isCredit: (0, pg_core_1.boolean)("is_credit").notNull().default(false),
     paymentDueDate: (0, pg_core_1.timestamp)("payment_due_date", { withTimezone: false }), /* For non credit transactions this will be null */

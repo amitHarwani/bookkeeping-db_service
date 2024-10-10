@@ -18,6 +18,8 @@ export const sales = pgTable("sales", {
     tax: numeric("tax").notNull().default("0"),
     taxPercent: decimal("tax_percent").notNull().default("0"),
     taxName: varchar("tax_name").notNull().default(""),
+    companyTaxNumber: varchar("company_tax_number").default(""),
+    partyTaxNumber: varchar("party_tax_number").default(""),
     totalAfterTax: numeric("total_after_tax").notNull(),
     isCredit: boolean("is_credit").notNull().default(false),
     paymentDueDate: timestamp("payment_due_date", {withTimezone: false}), /* For non credit transactions this will be null */
