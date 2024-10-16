@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.transferItems = exports.transfers = exports.cashInOut = exports.quotationItems = exports.quotations = exports.saleItemProfits = exports.saleItems = exports.sales = exports.purchaseItems = exports.purchases = exports.thirdParties = exports.adjustmentTypes = exports.itemAdjustments = exports.units = exports.items = exports.userTypes = exports.defaultFeatures = exports.companyTaxMapping = exports.users = exports.userCompanyMapping = exports.taxDetails = exports.roles = exports.platformFeatures = exports.countries = exports.companies = void 0;
+exports.saleReturnItems = exports.saleReturns = exports.transferItems = exports.transfers = exports.cashInOut = exports.quotationItems = exports.quotations = exports.saleItemProfits = exports.saleItems = exports.sales = exports.purchaseItems = exports.purchases = exports.thirdParties = exports.adjustmentTypes = exports.itemAdjustments = exports.units = exports.items = exports.userTypes = exports.defaultFeatures = exports.companyTaxMapping = exports.users = exports.userCompanyMapping = exports.taxDetails = exports.roles = exports.platformFeatures = exports.countries = exports.companies = void 0;
 var companies_1 = require("./db/schema/companies");
 Object.defineProperty(exports, "companies", { enumerable: true, get: function () { return companies_1.companies; } });
 var countries_1 = require("./db/schema/countries");
@@ -49,3 +49,7 @@ var transfers_1 = require("./db/schema/transfers");
 Object.defineProperty(exports, "transfers", { enumerable: true, get: function () { return transfers_1.transfers; } });
 var tranfer_items_1 = require("./db/schema/tranfer_items");
 Object.defineProperty(exports, "transferItems", { enumerable: true, get: function () { return tranfer_items_1.transferItems; } });
+var sale_returns_1 = require("./db/schema/sale_returns");
+Object.defineProperty(exports, "saleReturns", { enumerable: true, get: function () { return sale_returns_1.saleReturns; } });
+var sale_return_items_1 = require("./db/schema/sale_return_items");
+Object.defineProperty(exports, "saleReturnItems", { enumerable: true, get: function () { return sale_return_items_1.saleReturnItems; } });
