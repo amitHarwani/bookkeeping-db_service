@@ -162,6 +162,13 @@
       "when": 1729149330094,
       "tag": "0022_modern_butterfly",
       "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "7",
+      "when": 1729150031826,
+      "tag": "0023_luxuriant_red_skull",
+      "breakpoints": true
     }
   ]
 }
