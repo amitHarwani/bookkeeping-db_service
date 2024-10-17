@@ -169,6 +169,13 @@
       "when": 1729150031826,
       "tag": "0023_luxuriant_red_skull",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1729180175705,
+      "tag": "0024_famous_forge",
+      "breakpoints": true
     }
   ]
 }
