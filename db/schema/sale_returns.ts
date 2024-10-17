@@ -14,11 +14,6 @@ export const saleReturns = pgTable("sale_returns", {
     taxPercent: decimal("tax_percent").notNull().default("0"),
     taxName: varchar("tax_name").notNull().default(""),
     totalAfterTax: numeric("total_after_tax").notNull(),
-    companyTaxNumber: varchar("company_tax_number").default(""),
-    partyTaxNumber: varchar("party_tax_number").default(""),
-    partyId: integer("party_id").references(() => thirdParties.partyId),
-    partyName: varchar("party_name"),
-    isNoPartyBill: boolean("is_no_party_bill").default(false).notNull(),
     createdAt: timestamp("created_at", {withTimezone: false}).defaultNow(),
 }, (table) => {
     return {
