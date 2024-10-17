@@ -1,4 +1,4 @@
-import { boolean, decimal, integer, numeric, pgTable, serial, timestamp, varchar } from "drizzle-orm/pg-core";
+import { boolean, decimal, integer, numeric, pgTable, serial, timestamp, unique, varchar } from "drizzle-orm/pg-core";
 import { sales } from "./sales";
 import { thirdParties } from "./third_parties";
 import { companies } from "./companies";
@@ -20,4 +20,8 @@ export const saleReturns = pgTable("sale_returns", {
     partyName: varchar("party_name"),
     isNoPartyBill: boolean("is_no_party_bill").default(false).notNull(),
     createdAt: timestamp("created_at", {withTimezone: false}).defaultNow(),
+}, (table) => {
+    return {
+        unique: unique().on(table.companyId, table.saleReturnNumber)
+    }
 })

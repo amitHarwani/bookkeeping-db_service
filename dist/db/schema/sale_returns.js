@@ -21,4 +21,8 @@ exports.saleReturns = (0, pg_core_1.pgTable)("sale_returns", {
     partyName: (0, pg_core_1.varchar)("party_name"),
     isNoPartyBill: (0, pg_core_1.boolean)("is_no_party_bill").default(false).notNull(),
     createdAt: (0, pg_core_1.timestamp)("created_at", { withTimezone: false }).defaultNow(),
+}, (table) => {
+    return {
+        unique: (0, pg_core_1.unique)().on(table.companyId, table.saleReturnNumber)
+    };
 });

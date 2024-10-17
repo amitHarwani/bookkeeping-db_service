@@ -1,0 +1,1 @@
+ALTER TABLE "sale_returns" ADD CONSTRAINT "sale_returns_company_id_sale_return_number_unique" UNIQUE("company_id","sale_return_number");
