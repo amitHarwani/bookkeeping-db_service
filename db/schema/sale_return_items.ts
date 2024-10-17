@@ -1,4 +1,4 @@
-import { decimal, integer, numeric, pgTable, varchar, timestamp } from "drizzle-orm/pg-core";
+import { decimal, integer, numeric, pgTable, varchar, timestamp, primaryKey } from "drizzle-orm/pg-core";
 import { saleReturns } from "./sale_returns";
 import { items } from "./items";
 import { companies } from "./companies";
@@ -19,4 +19,9 @@ export const saleReturnItems = pgTable("sale_return_items", {
     taxPercent: decimal("tax_percent").notNull().default("0"),
     totalAfterTax: numeric("total_after_tax").notNull(),
     createdAt: timestamp("created_at", {withTimezone: false}).defaultNow(),
+}, (table) => {
+    return {
+        PK: primaryKey({columns: [table.saleReturnId, table.itemId]})
+    }
+    
 })

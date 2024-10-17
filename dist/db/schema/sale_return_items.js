@@ -20,4 +20,8 @@ exports.saleReturnItems = (0, pg_core_1.pgTable)("sale_return_items", {
     taxPercent: (0, pg_core_1.decimal)("tax_percent").notNull().default("0"),
     totalAfterTax: (0, pg_core_1.numeric)("total_after_tax").notNull(),
     createdAt: (0, pg_core_1.timestamp)("created_at", { withTimezone: false }).defaultNow(),
+}, (table) => {
+    return {
+        PK: (0, pg_core_1.primaryKey)({ columns: [table.saleReturnId, table.itemId] })
+    };
 });
