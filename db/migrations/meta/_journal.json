@@ -183,6 +183,13 @@
       "when": 1729248322690,
       "tag": "0025_third_mysterio",
       "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1729248452158,
+      "tag": "0026_sticky_black_panther",
+      "breakpoints": true
     }
   ]
 }
