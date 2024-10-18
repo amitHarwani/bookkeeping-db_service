@@ -1,0 +1,1 @@
+ALTER TABLE "purchase_returns" DROP COLUMN IF EXISTS "invoice_number";
