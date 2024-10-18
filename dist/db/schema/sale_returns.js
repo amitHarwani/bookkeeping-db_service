@@ -8,6 +8,7 @@ exports.saleReturns = (0, pg_core_1.pgTable)("sale_returns", {
     saleReturnId: (0, pg_core_1.serial)("sale_return_id").primaryKey(),
     saleReturnNumber: (0, pg_core_1.integer)("sale_return_number").notNull(),
     saleId: (0, pg_core_1.integer)("sale_id").references(() => sales_1.sales.saleId).notNull(),
+    invoiceNumber: (0, pg_core_1.integer)("invoice_number"),
     companyId: (0, pg_core_1.integer)("company_id").references(() => companies_1.companies.companyId).notNull(),
     subtotal: (0, pg_core_1.numeric)("subtotal").notNull(),
     tax: (0, pg_core_1.numeric)("tax").notNull().default("0"),

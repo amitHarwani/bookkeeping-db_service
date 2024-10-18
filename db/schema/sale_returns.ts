@@ -8,6 +8,7 @@ export const saleReturns = pgTable("sale_returns", {
     saleReturnId: serial("sale_return_id").primaryKey(),
     saleReturnNumber: integer("sale_return_number").notNull(),
     saleId: integer("sale_id").references(() => sales.saleId).notNull(),
+    invoiceNumber: integer("invoice_number"),
     companyId: integer("company_id").references(() => companies.companyId).notNull(),
     subtotal: numeric("subtotal").notNull(),
     tax: numeric("tax").notNull().default("0"),
