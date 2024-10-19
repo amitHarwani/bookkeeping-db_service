@@ -25,3 +25,4 @@ export { saleReturns } from "./db/schema/sale_returns";
 export { saleReturnItems } from "./db/schema/sale_return_items";
 export { purchaseReturns } from "./db/schema/purchase_returns";
 export { purchaseReturnItems } from "./db/schema/purchase_return_items"
+export { reports } from "./db/schema/reports";
