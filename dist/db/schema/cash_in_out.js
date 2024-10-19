@@ -6,6 +6,7 @@ const companies_1 = require("./companies");
 const purchases_1 = require("./purchases");
 const sales_1 = require("./sales");
 exports.cashInOut = (0, pg_core_1.pgTable)("cash_in_out", {
+    id: (0, pg_core_1.serial)("id").primaryKey(),
     transactionDateTime: (0, pg_core_1.timestamp)("transaction_date_time", { withTimezone: false }).notNull(),
     companyId: (0, pg_core_1.integer)("company_id").references(() => companies_1.companies.companyId).notNull(),
     cashIn: (0, pg_core_1.numeric)("cash_in").default("0").notNull(),
