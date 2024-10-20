@@ -218,6 +218,13 @@
       "when": 1729343340153,
       "tag": "0030_purple_spot",
       "breakpoints": true
+    },
+    {
+      "idx": 31,
+      "version": "7",
+      "when": 1729408277399,
+      "tag": "0031_spooky_exodus",
+      "breakpoints": true
     }
   ]
 }

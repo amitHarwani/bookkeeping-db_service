@@ -1,4 +1,5 @@
-import { pgTable, serial, timestamp, varchar } from "drizzle-orm/pg-core";
+import { pgTable, serial, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
+import { users } from "./users";
 
 
 export const reports = pgTable("reports", {
@@ -9,4 +10,5 @@ export const reports = pgTable("reports", {
     status: varchar("status").notNull(),
     reportLink: varchar("report_link"),
     createdAt: timestamp("created_at", {withTimezone: false}).defaultNow().notNull(),
+    requestedBy: uuid("requested_by").references(() => users.userId)
 })
