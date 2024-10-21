@@ -3,9 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.reports = void 0;
 const pg_core_1 = require("drizzle-orm/pg-core");
 const users_1 = require("./users");
+const companies_1 = require("./companies");
 exports.reports = (0, pg_core_1.pgTable)("reports", {
     reportId: (0, pg_core_1.serial)("report_id").primaryKey(),
     reportName: (0, pg_core_1.varchar)("report_name").notNull(),
+    companyId: (0, pg_core_1.integer)("company_id").references(() => companies_1.companies.companyId).notNull(),
     fromDateTime: (0, pg_core_1.timestamp)("from_date_time", { withTimezone: false }),
     toDateTime: (0, pg_core_1.timestamp)("to_date_time", { withTimezone: false }),
     status: (0, pg_core_1.varchar)("status").notNull(),
