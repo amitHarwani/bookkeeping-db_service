@@ -1,1 +1,0 @@
-ALTER TABLE "sale_returns" ALTER COLUMN "invoice_number" SET NOT NULL;

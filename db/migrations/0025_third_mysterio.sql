@@ -1,1 +1,0 @@
-ALTER TABLE "sale_returns" ADD COLUMN "invoice_number" integer;

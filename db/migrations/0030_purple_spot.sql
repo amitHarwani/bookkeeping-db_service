@@ -1,1 +1,0 @@
-ALTER TABLE "cash_in_out" ADD COLUMN "id" serial PRIMARY KEY NOT NULL;
