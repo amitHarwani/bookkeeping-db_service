@@ -16,13 +16,19 @@ const postgres_js_1 = require("drizzle-orm/postgres-js");
 const migrator_1 = require("drizzle-orm/postgres-js/migrator");
 const postgres_1 = __importDefault(require("postgres"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const fs_1 = __importDefault(require("fs"));
 dotenv_1.default.config();
 dotenv_1.default.config({ path: `.env.${process.env.NODE_ENV}` });
 // for migrations
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        const migrationClient = (0, postgres_1.default)(process.env.DB_URL, { max: 1 });
-        yield (0, migrator_1.migrate)((0, postgres_js_1.drizzle)(migrationClient), { migrationsFolder: "./db/migrations" });
+        /* DB url from file or enviornment variable */
+        const DB_URL = (process.env.DB_URL ||
+            fs_1.default.readFileSync(process.env.DB_URL_FILE, "utf-8"));
+        const migrationClient = (0, postgres_1.default)(DB_URL, { max: 1 });
+        yield (0, migrator_1.migrate)((0, postgres_js_1.drizzle)(migrationClient), {
+            migrationsFolder: "./db/migrations",
+        });
         yield migrationClient.end();
     });
 }
